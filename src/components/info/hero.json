@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_info_heroes",
+  "info": {
+    "displayName": "Hero",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "default": "Lily Hawkes",
+      "required": true
+    },
+    "TitleAccessory": {
+      "type": "string",
+      "default": "BSc"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "Description": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}

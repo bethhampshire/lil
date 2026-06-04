@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_info_text_blocks",
+  "info": {
+    "displayName": "Text block",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "richtext",
+      "required": true
+    }
+  },
+  "config": {}
+}

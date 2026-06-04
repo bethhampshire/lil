@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_contact_contact_panels",
+  "info": {
+    "displayName": "Contact panel",
+    "icon": "envelop"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "default": "Contact me",
+      "required": true
+    },
+    "Description": {
+      "type": "richtext",
+      "required": true
+    },
+    "IsAvailable": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    }
+  },
+  "config": {}
+}

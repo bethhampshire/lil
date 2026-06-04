@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "default": "Lily Hawkes"
+    },
+    "Content": {
+      "type": "dynamiczone",
+      "components": [
+        "info.text-block",
+        "info.hero",
+        "contact.contact-panel"
+      ]
+    }
+  }
+}
