@@ -477,6 +477,57 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiIntroCallIntroCall extends Struct.CollectionTypeSchema {
+  collectionName: 'intro_calls';
+  info: {
+    description: 'Intro call requests submitted from the website';
+    displayName: 'Intro call';
+    pluralName: 'intro-calls';
+    singularName: 'intro-call';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    CallStatus: Schema.Attribute.Enumeration<
+      ['scheduled', 'confirmed', 'completed', 'cancelled']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'scheduled'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    DateBooked: Schema.Attribute.Date;
+    Days: Schema.Attribute.String & Schema.Attribute.Required;
+    EarliestTime: Schema.Attribute.String & Schema.Attribute.Required;
+    Email: Schema.Attribute.Email & Schema.Attribute.Required;
+    LatestTime: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::intro-call.intro-call'
+    > &
+      Schema.Attribute.Private;
+    Message: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 2000;
+      }>;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    Phone: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 40;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
@@ -1017,6 +1068,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::intro-call.intro-call': ApiIntroCallIntroCall;
       'api::page.page': ApiPagePage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "intro_calls",
+  "info": {
+    "singularName": "intro-call",
+    "pluralName": "intro-calls",
+    "displayName": "Intro call",
+    "description": "Intro call requests submitted from the website"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "Phone": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "Days": {
+      "type": "string",
+      "required": true
+    },
+    "EarliestTime": {
+      "type": "string",
+      "required": true,
+      "regex": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+    },
+    "LatestTime": {
+      "type": "string",
+      "required": true,
+      "regex": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+    },
+    "Message": {
+      "type": "text",
+      "maxLength": 2000
+    },
+    "CallStatus": {
+      "type": "enumeration",
+      "enum": [
+        "scheduled",
+        "confirmed",
+        "completed",
+        "cancelled"
+      ],
+      "default": "scheduled",
+      "required": true
+    },
+    "DateBooked": {
+      "type": "date"
+    }
+  }
+}
